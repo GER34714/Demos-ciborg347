@@ -5,20 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>CIBORG 347 | Demos (Catálogo tipo Netflix)</title>
-  <meta name="description" content="Catálogo de demos por rubro. Elegí un ejemplo y pedime una igual para tu negocio. Contacto directo por WhatsApp." />
+  <title>CIBORG 347 | Demos Premium</title>
+  <meta name="description" content="Catálogo premium de demos por rubro. Elegí un ejemplo y pedime uno igual para tu negocio. Contacto directo por WhatsApp." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="CIBORG 347 | Demos (Catálogo tipo Netflix)" />
-  <meta property="og:description" content="Elegí un ejemplo por rubro y pedime una igual para tu negocio. Contacto por WhatsApp." />
+  <meta property="og:title" content="CIBORG 347 | Demos Premium" />
+  <meta property="og:description" content="Elegí un ejemplo por rubro y pedime uno igual para tu negocio. Contacto directo por WhatsApp." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://placehold.co/1200x630/png?text=CIBORG+347+DEMOS" />
   <meta property="og:locale" content="es_AR" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CIBORG 347 | Demos (Catálogo tipo Netflix)" />
-  <meta name="twitter:description" content="Elegí un ejemplo por rubro y pedime una igual para tu negocio. Contacto por WhatsApp." />
+  <meta name="twitter:title" content="CIBORG 347 | Demos Premium" />
+  <meta name="twitter:description" content="Elegí un ejemplo por rubro y pedime uno igual para tu negocio. Contacto por WhatsApp." />
   <meta name="twitter:image" content="https://placehold.co/1200x630/png?text=CIBORG+347+DEMOS" />
 
   <meta name="theme-color" content="#07070c" />
@@ -31,149 +31,192 @@
     }
 
     :root{
-      --bg:#07070c;
-      --bg2:#0b0b12;
-      --panel: rgba(255,255,255,.05);
-      --panel2: rgba(255,255,255,.07);
-      --stroke: rgba(255,255,255,.12);
-      --stroke2: rgba(255,255,255,.18);
+      --bg:#06060b;
+      --bg2:#0a0a12;
       --txt:#f2f2ff;
-      --muted: rgba(242,242,255,.70);
-      --muted2: rgba(242,242,255,.55);
-      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --muted: rgba(242,242,255,.72);
+      --muted2: rgba(242,242,255,.52);
+      --glass: rgba(255,255,255,.06);
+      --glass2: rgba(255,255,255,.09);
+      --stroke: rgba(255,255,255,.14);
+      --stroke2: rgba(255,255,255,.22);
+      --shadow: 0 28px 90px rgba(0,0,0,.62);
       --r: 18px;
-      --r2: 26px;
-      --max: 1200px;
-      --cyan: #00ffd1;
-      --mag:  #ff00c8;
-      --vio:  #6f5bff;
+      --r2: 28px;
+      --max: 1240px;
+      --cyan:#00ffd1;
+      --mag:#ff00c8;
+      --vio:#6f5bff;
+      --amber:#ffd000;
     }
 
-    *{ box-sizing: border-box; }
+    *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
       margin:0;
       color:var(--txt);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       background:
-        radial-gradient(900px 500px at 15% -10%, rgba(0,255,209,.18), transparent 60%),
-        radial-gradient(900px 500px at 85% 0%, rgba(255,0,200,.16), transparent 60%),
-        radial-gradient(900px 600px at 60% 110%, rgba(111,91,255,.16), transparent 60%),
+        radial-gradient(900px 520px at 12% -10%, rgba(0,255,209,.18), transparent 62%),
+        radial-gradient(900px 520px at 90% 0%, rgba(255,0,200,.16), transparent 62%),
+        radial-gradient(1000px 650px at 60% 110%, rgba(111,91,255,.18), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
       padding-bottom: 110px;
     }
 
+    /* GRID + GRAIN */
     body::before{
       content:"";
-      position: fixed;
-      inset:0;
+      position: fixed; inset:0;
       pointer-events:none;
-      opacity:.07;
+      opacity:.12;
+      background:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(900px 520px at 50% 20%, rgba(0,0,0,1), rgba(0,0,0,.25) 55%, transparent 75%);
+      z-index:0;
+    }
+    body::after{
+      content:"";
+      position: fixed; inset:0;
+      pointer-events:none;
+      opacity:.06;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
       mix-blend-mode: overlay;
-      z-index: 0;
+      z-index:0;
     }
 
     a{ color:inherit; text-decoration:none; }
     .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; position:relative; z-index:1; }
 
-    .top{
+    /* NAV */
+    .nav{
       position: sticky;
       top:0;
-      z-index: 60;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(7,7,12,.78), rgba(7,7,12,.50));
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      z-index: 80;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      background: linear-gradient(180deg, rgba(6,6,11,.86), rgba(6,6,11,.52));
+      backdrop-filter: blur(18px);
     }
-    .top-inner{
+    .nav-inner{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap: 14px;
       padding: 14px 0;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
-      min-width: 270px;
+      gap: 12px;
+      min-width: 290px;
     }
-    .brandMark{
-      width:44px; height:44px;
+    .mark{
+      width:46px; height:46px;
       border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
       display:grid; place-items:center;
-      overflow:hidden;
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
+      overflow:hidden;
+      position:relative;
     }
-    .brandMark img{
+    .mark::before{
+      content:"";
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(160px 120px at 25% 35%, rgba(0,255,209,.30), transparent 60%),
+        radial-gradient(160px 120px at 70% 30%, rgba(255,0,200,.22), transparent 60%),
+        radial-gradient(180px 140px at 55% 85%, rgba(111,91,255,.24), transparent 65%);
+      filter: blur(14px);
+      opacity:.95;
+    }
+    .mark img{
+      position:relative;
       width:100%; height:100%;
       object-fit: contain;
-      padding:6px;
+      padding:7px;
       filter:
-        drop-shadow(0 0 18px rgba(0,255,209,.25))
-        drop-shadow(0 0 18px rgba(255,0,200,.18))
-        drop-shadow(0 0 18px rgba(111,91,255,.15));
+        drop-shadow(0 0 18px rgba(0,255,209,.28))
+        drop-shadow(0 0 18px rgba(255,0,200,.20))
+        drop-shadow(0 0 18px rgba(111,91,255,.18));
+      z-index:1;
     }
 
-    .brandText{ line-height:1.05; }
-    .neonTitle{
+    .brandText{ line-height:1.0; }
+    .brandTitle{
       margin:0;
-      font-family: "Angels", ui-sans-serif, system-ui;
+      font-family:"Angels", ui-sans-serif, system-ui;
       font-size: 22px;
-      letter-spacing: .10em;
+      letter-spacing:.12em;
       text-transform: uppercase;
+      color: transparent;
       background: linear-gradient(90deg, var(--cyan), var(--mag), var(--vio), var(--cyan));
       -webkit-background-clip: text;
       background-clip: text;
-      color: transparent;
-      filter: saturate(1.45);
       text-shadow:
-        0 0 16px rgba(0,255,209,.40),
-        0 0 22px rgba(255,0,200,.30),
-        0 0 26px rgba(111,91,255,.22),
-        0 0 34px rgba(0,255,209,.18);
+        0 0 18px rgba(0,255,209,.38),
+        0 0 28px rgba(255,0,200,.28),
+        0 0 34px rgba(111,91,255,.22);
+      filter: saturate(1.55);
       position:relative;
+    }
+    .brandTitle::after{
+      content:"";
+      position:absolute;
+      inset:-18px -12px;
+      background:
+        radial-gradient(180px 60px at 25% 50%, rgba(0,255,209,.22), transparent 70%),
+        radial-gradient(180px 60px at 70% 50%, rgba(255,0,200,.18), transparent 70%),
+        radial-gradient(220px 80px at 50% 50%, rgba(111,91,255,.16), transparent 72%);
+      filter: blur(16px);
+      z-index:-1;
+      opacity:.95;
+      animation: glowPulse 3.4s ease-in-out infinite;
+    }
+    @keyframes glowPulse{
+      0%,100%{ transform: scale(1); opacity:.85; }
+      50%{ transform: scale(1.06); opacity:1; }
     }
     .brandText small{
       display:block;
-      margin-top:3px;
-      font-size:12px;
+      margin-top:5px;
       color: var(--muted2);
+      font-size: 12px;
       letter-spacing:.04em;
     }
 
     .navlinks{
       display:flex;
-      gap:16px;
       align-items:center;
+      gap: 8px;
       color: rgba(242,242,255,.78);
-      font-size:13px;
-      margin-left: 6px;
+      font-size: 13px;
       white-space: nowrap;
     }
     .navlinks a{
-      padding:8px 10px;
+      padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid transparent;
+      border:1px solid transparent;
+      transition: background .16s ease, border-color .16s ease;
     }
     .navlinks a:hover{
+      background: rgba(255,255,255,.05);
       border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
     }
 
     .search{
       flex:1;
       display:flex;
       align-items:center;
-      gap:10px;
+      gap: 10px;
       background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 999px;
-      padding:10px 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      padding: 10px 12px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
       min-width: 220px;
     }
     .search svg{ opacity:.78; }
@@ -183,150 +226,212 @@
       border:0;
       outline:none;
       color: var(--txt);
-      font-size:14px;
+      font-size: 14px;
     }
     .search input::placeholder{ color: rgba(242,242,255,.45); }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
+      padding: 11px 14px;
       border-radius: 999px;
-      padding:10px 14px;
-      border:1px solid rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
-      color:rgba(242,242,255,.92);
-      font-size:13px;
+      color: rgba(242,242,255,.92);
+      font-size: 13px;
       cursor:pointer;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
-      white-space:nowrap;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.085); border-color: rgba(255,255,255,.22); }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.085);
+      border-color: rgba(255,255,255,.24);
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+    }
     .btn.primary{
-      border-color: rgba(0,255,209,.28);
-      background: linear-gradient(135deg, rgba(0,255,209,.18), rgba(255,0,200,.12));
-      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      border-color: rgba(0,255,209,.30);
+      background: linear-gradient(135deg, rgba(0,255,209,.18), rgba(255,0,200,.12), rgba(111,91,255,.10));
+      box-shadow: 0 22px 70px rgba(0,0,0,.35);
+    }
+    .btn.ghost{
+      border-color: rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
     }
 
-    .hero{ padding: 26px 0 16px; }
-    .heroCard{
-      border-radius: var(--r2);
-      background:
-        radial-gradient(1000px 420px at 20% 0%, rgba(0,255,209,.18), transparent 55%),
-        radial-gradient(900px 420px at 85% 10%, rgba(255,0,200,.14), transparent 55%),
-        radial-gradient(900px 520px at 60% 120%, rgba(111,91,255,.16), transparent 60%),
-        rgba(255,255,255,.045);
+    /* HERO (más PlayNFT) */
+    .hero{ padding: 26px 0 12px; }
+    .heroShell{
+      border-radius: 34px;
       border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
+      isolation: isolate;
     }
+    .heroShell::before{
+      content:"";
+      position:absolute; inset:-120px;
+      background:
+        radial-gradient(520px 320px at 18% 25%, rgba(0,255,209,.22), transparent 62%),
+        radial-gradient(520px 320px at 84% 18%, rgba(255,0,200,.18), transparent 62%),
+        radial-gradient(720px 420px at 60% 92%, rgba(111,91,255,.18), transparent 62%);
+      filter: blur(18px);
+      opacity:.95;
+      z-index:0;
+      animation: floatBg 9s ease-in-out infinite;
+    }
+    @keyframes floatBg{
+      0%,100%{ transform: translate3d(0,0,0) scale(1); }
+      50%{ transform: translate3d(0,-12px,0) scale(1.03); }
+    }
+
     .heroInner{
+      position:relative;
+      z-index:1;
       display:grid;
-      grid-template-columns: 1.12fr .88fr;
+      grid-template-columns: 1.08fr .92fr;
       gap: 18px;
       padding: 22px;
       align-items: center;
     }
-    .heroKicker{
-      color: rgba(242,242,255,.70);
+
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color: rgba(242,242,255,.72);
       font-size: 12px;
       letter-spacing: .18em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
+    .dot{
+      width:8px; height:8px;
+      border-radius:999px;
+      background: linear-gradient(90deg, var(--cyan), var(--mag), var(--vio));
+      box-shadow:
+        0 0 12px rgba(0,255,209,.35),
+        0 0 16px rgba(255,0,200,.26),
+        0 0 18px rgba(111,91,255,.20);
+      animation: dotPulse 1.9s ease-in-out infinite;
+    }
+    @keyframes dotPulse{
+      0%,100%{ transform: scale(1); opacity:.9; }
+      50%{ transform: scale(1.35); opacity:1; }
+    }
+
     .heroTitle{
       margin:0 0 10px;
-      font-size: 34px;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+      font-size: 40px;
+      line-height: 1.03;
+      letter-spacing: -0.04em;
     }
     .heroSub{
       margin:0 0 16px;
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.6;
-      max-width: 54ch;
+      line-height: 1.65;
+      max-width: 56ch;
     }
-    .heroActions{
+    .ctaRow{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+      gap: 10px;
+      flex-wrap: wrap;
       margin-bottom: 16px;
     }
-    .heroActions .btn{ padding: 11px 16px; }
 
     .statsRow{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 8px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .stat{
-      flex:1 1 160px;
+      flex: 1 1 160px;
       min-width: 160px;
-      border-radius: 16px;
+      border-radius: 18px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
       padding: 12px 12px;
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
     }
-    .stat .k{ font-size:12px; color: var(--muted2); margin-bottom:4px; }
-    .stat .v{ font-size:18px; letter-spacing:-.01em; }
+    .stat .k{ font-size:12px; color: var(--muted2); margin-bottom: 4px; }
+    .stat .v{ font-size: 18px; letter-spacing: -.01em; }
 
-    /* HERO ART (logo en hero) */
-    .heroArt{
-      border-radius: 22px;
+    /* HERO CARD 3D (logo dentro) */
+    .heroCard3d{
+      border-radius: 26px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      overflow:hidden;
       position:relative;
-      min-height: 320px;
-      backdrop-filter: blur(16px);
+      min-height: 360px;
+      overflow:hidden;
+      backdrop-filter: blur(18px);
+      transform-style: preserve-3d;
+      box-shadow: 0 30px 100px rgba(0,0,0,.55);
+    }
+    .heroCard3d::before{
+      content:"";
+      position:absolute; inset:-80px;
+      background:
+        radial-gradient(380px 260px at 25% 30%, rgba(0,255,209,.24), transparent 60%),
+        radial-gradient(360px 240px at 80% 28%, rgba(255,0,200,.18), transparent 60%),
+        radial-gradient(520px 360px at 55% 88%, rgba(111,91,255,.20), transparent 62%);
+      filter: blur(16px);
+      opacity:.95;
+    }
+    .heroCard3d::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(255,255,255,.08), transparent 55%, rgba(255,255,255,.04));
+      opacity:.45;
+      pointer-events:none;
+    }
+    .heroLogo{
+      position:absolute;
+      inset: 0;
       display:grid;
       place-items:center;
       padding: 18px;
+      z-index: 2;
     }
-    .heroArt::before{
-      content:"";
-      position:absolute; inset:-90px;
-      background:
-        radial-gradient(380px 220px at 30% 30%, rgba(0,255,209,.26), transparent 60%),
-        radial-gradient(380px 220px at 70% 40%, rgba(255,0,200,.22), transparent 60%),
-        radial-gradient(420px 260px at 55% 75%, rgba(111,91,255,.24), transparent 65%);
-      filter: blur(18px);
-      opacity: .95;
-    }
-    .heroArt img{
-      position:relative;
-      width:100%;
-      height:100%;
-      max-height: 460px;
-      object-fit: contain;  /* LOGO como protagonista */
-      z-index: 1;
+    .heroLogo img{
+      width: 100%;
+      max-width: 520px;
+      max-height: 430px;
+      object-fit: contain;
       filter:
-        drop-shadow(0 0 22px rgba(0,255,209,.30))
-        drop-shadow(0 0 22px rgba(255,0,200,.22))
-        drop-shadow(0 0 22px rgba(111,91,255,.20));
-      transform: scale(1.02);
+        drop-shadow(0 0 26px rgba(0,255,209,.26))
+        drop-shadow(0 0 26px rgba(255,0,200,.20))
+        drop-shadow(0 0 26px rgba(111,91,255,.18));
+      transform: translateZ(18px);
+      animation: floatLogo 6.5s ease-in-out infinite;
     }
-    .heroArtBadge{
+    @keyframes floatLogo{
+      0%,100%{ transform: translateY(0) translateZ(18px); }
+      50%{ transform: translateY(-10px) translateZ(18px); }
+    }
+
+    .heroBadge{
       position:absolute;
       left: 14px;
       bottom: 14px;
-      z-index: 2;
+      z-index: 3;
       padding: 10px 12px;
       border-radius: 16px;
-      background: rgba(0,0,0,.35);
+      background: rgba(0,0,0,.34);
       border: 1px solid rgba(255,255,255,.18);
       backdrop-filter: blur(14px);
       color: rgba(242,242,255,.92);
       font-size: 12px;
     }
 
-    .partnerBar{
+    /* Partner strip */
+    .partners{
       display:flex;
-      gap:18px;
+      gap: 18px;
       justify-content: space-between;
       align-items:center;
       flex-wrap:wrap;
@@ -339,50 +444,75 @@
       text-transform: uppercase;
     }
 
+    /* Filters (chips) */
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      padding: 14px 16px 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.10);
+    }
+    .chip{
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      color: rgba(242,242,255,.88);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      white-space: nowrap;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
+    }
+    .chip.active{
+      border-color: rgba(0,255,209,.35);
+      background: linear-gradient(135deg, rgba(0,255,209,.18), rgba(255,0,200,.10));
+    }
+
+    /* Sections */
     .section{ padding: 18px 0 8px; }
-    .sectionHead{
+    .head{
       display:flex;
       align-items:baseline;
-      justify-content:space-between;
+      justify-content: space-between;
       gap: 12px;
       margin-bottom: 12px;
     }
-    .sectionHead h3{
-      margin:0;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-    }
-    .sectionHead p{
-      margin:0;
-      color: var(--muted2);
-      font-size: 13px;
-    }
+    .head h3{ margin:0; font-size: 22px; letter-spacing:-.02em; }
+    .head p{ margin:0; color: var(--muted2); font-size: 13px; }
 
+    /* Horizontal rows */
     .hScroll{
       display:flex;
       gap: 14px;
-      overflow-x: auto;
+      overflow-x:auto;
       padding-bottom: 8px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
     }
     .hScroll::-webkit-scrollbar{ height: 8px; }
     .hScroll::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.12); border-radius: 999px; }
+
     .hCard{
-      flex: 0 0 280px;
+      flex: 0 0 300px;
       scroll-snap-align: start;
-      border-radius: var(--r);
+      border-radius: var(--r2);
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
-      box-shadow: 0 18px 55px rgba(0,0,0,.40);
       overflow:hidden;
-      position:relative;
       backdrop-filter: blur(16px);
+      box-shadow: 0 22px 70px rgba(0,0,0,.42);
       transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      position:relative;
     }
     .hCard:hover{
       transform: translateY(-3px);
-      border-color: rgba(255,255,255,.20);
+      border-color: rgba(255,255,255,.22);
       background: rgba(255,255,255,.065);
     }
     .hThumb{
@@ -396,34 +526,30 @@
       object-fit: cover;
       display:block;
       transform: scale(1.02);
-      filter: saturate(1.08) contrast(1.05);
-    }
-    .hBody{ padding: 12px; }
-    .hTitle{ margin:0 0 6px; font-size: 14px; letter-spacing: -.01em; }
-    .hMeta{ margin:0 0 10px; color: var(--muted); font-size: 12px; line-height: 1.4; }
-    .hActions{ display:flex; gap:10px; flex-wrap:wrap; }
-    .mini{
-      padding: 9px 12px;
-      font-size: 12px;
-      border-radius: 14px;
-    }
-    .mini.primary{
-      border-color: rgba(0,255,209,.28);
-      background: linear-gradient(135deg, rgba(0,255,209,.17), rgba(255,0,200,.10));
+      filter: saturate(1.1) contrast(1.06);
     }
     .badge{
-      position:absolute;
-      top:10px; left:10px;
-      padding:6px 10px;
-      font-size:11px;
-      border-radius:999px;
-      background: rgba(0,0,0,.45);
+      position:absolute; top:10px; left:10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.42);
       border: 1px solid rgba(255,255,255,.18);
       color: rgba(242,242,255,.92);
-      backdrop-filter: blur(10px);
-      z-index: 2;
+      backdrop-filter: blur(12px);
+      font-size: 11px;
+      z-index:2;
+    }
+    .hBody{ padding: 12px 12px 14px; }
+    .hTitle{ margin:0 0 6px; font-size: 15px; letter-spacing:-.01em; }
+    .hMeta{ margin:0 0 12px; color: var(--muted); font-size: 12px; }
+    .rowBtns{ display:flex; gap:10px; flex-wrap:wrap; }
+    .mini{ padding: 9px 12px; font-size: 12px; border-radius: 14px; }
+    .mini.primary{
+      border-color: rgba(0,255,209,.30);
+      background: linear-gradient(135deg, rgba(0,255,209,.18), rgba(255,0,200,.10));
     }
 
+    /* Bento */
     .bento{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -436,58 +562,58 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
       overflow:hidden;
-      box-shadow: 0 22px 70px rgba(0,0,0,.42);
-      position:relative;
       backdrop-filter: blur(16px);
+      box-shadow: 0 22px 70px rgba(0,0,0,.42);
       transition: transform .18s ease, border-color .18s ease, background .18s ease;
-      cursor: pointer;
-    }
-    .tile:hover{
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,.20);
-      background: rgba(255,255,255,.065);
+      cursor:pointer;
+      position:relative;
+      min-height: 158px;
     }
     .tile.big{ grid-column: span 6; }
-    .tile .tBg{
-      position:absolute; inset:0;
-      background:
-        radial-gradient(600px 320px at 20% 20%, rgba(0,255,209,.16), transparent 60%),
-        radial-gradient(600px 320px at 80% 30%, rgba(255,0,200,.12), transparent 60%),
-        radial-gradient(680px 420px at 60% 90%, rgba(111,91,255,.14), transparent 62%),
-        rgba(0,0,0,.18);
+    .tile:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.065);
     }
-    .tile .tInner{
+    .tile::before{
+      content:"";
+      position:absolute; inset:-60px;
+      background:
+        radial-gradient(520px 260px at 20% 20%, rgba(0,255,209,.16), transparent 60%),
+        radial-gradient(520px 260px at 80% 28%, rgba(255,0,200,.12), transparent 60%),
+        radial-gradient(620px 340px at 55% 90%, rgba(111,91,255,.14), transparent 62%);
+      filter: blur(14px);
+      opacity:.9;
+    }
+    .tile .inner{
       position:relative;
       padding: 16px;
-      min-height: 150px;
       display:flex;
       flex-direction:column;
       justify-content: space-between;
       gap: 10px;
-      z-index: 1;
+      z-index:1;
     }
-    .tile .tLabel{
+    .tile .label{
       font-size: 12px;
       letter-spacing: .16em;
       text-transform: uppercase;
       color: rgba(242,242,255,.70);
     }
-    .tile .tTitle{
+    .tile .title{
+      margin:0;
       font-size: 18px;
-      letter-spacing: -0.02em;
-      margin: 0;
+      letter-spacing:-.02em;
     }
-    .tile .tSub{
-      margin: 0;
+    .tile .sub{
+      margin:0;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.5;
-    }
-    .tile .tBtnRow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 4px;
+      line-height: 1.55;
+      max-width: 48ch;
     }
 
+    /* Catalog grid */
     .catalog{ padding: 18px 0 48px; }
     .grid{
       display:grid;
@@ -497,22 +623,25 @@
     }
     .card{
       grid-column: span 4;
-      border-radius: var(--r);
-      background: rgba(255,255,255,.05);
+      border-radius: var(--r2);
       border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
       overflow:hidden;
-      box-shadow: 0 18px 55px rgba(0,0,0,.40);
-      transform: translateY(10px);
-      opacity: 0;
-      transition: transform .38s ease, opacity .38s ease, border-color .18s ease, background .18s ease;
-      position:relative;
       backdrop-filter: blur(16px);
+      box-shadow: 0 22px 70px rgba(0,0,0,.42);
+      transform: translateY(12px);
+      opacity: 0;
+      transition: transform .40s ease, opacity .40s ease, border-color .18s ease, background .18s ease;
+      position:relative;
     }
-    .card.in{ transform: translateY(0); opacity:1; }
-    .card:hover{ border-color: rgba(255,255,255,.20); background: rgba(255,255,255,.065); transform: translateY(-3px); }
+    .card.in{ transform: translateY(0); opacity: 1; }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.065);
+    }
     .thumb{
-      aspect-ratio: 16 / 10;
-      width:100%;
+      aspect-ratio: 16/10;
       background: rgba(0,0,0,.22);
       position:relative;
       overflow:hidden;
@@ -521,45 +650,25 @@
       width:100%; height:100%;
       object-fit: cover;
       display:block;
-      filter: saturate(1.08) contrast(1.05);
       transform: scale(1.02);
+      filter: saturate(1.1) contrast(1.06);
     }
     .content{ padding: 12px 12px 14px; }
-    .title{ margin:0 0 6px; font-size: 15px; letter-spacing:-.01em; }
-    .short{ margin:0 0 10px; color: var(--muted); font-size: 13px; line-height:1.5; min-height: 40px; }
+    .cTitle{ margin:0 0 6px; font-size: 15px; letter-spacing:-.01em; }
+    .short{ margin:0 0 10px; color: var(--muted); font-size: 13px; line-height:1.55; min-height: 42px; }
     .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
-    .metaRow{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      margin-top:10px;
-      padding-top:10px;
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
       border-top: 1px solid rgba(255,255,255,.08);
       color: rgba(242,242,255,.60);
-      font-size:12px;
-    }
-    .host{ max-width: 68%; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-    .chips{
-      display:flex; flex-wrap:wrap; gap:8px;
-      padding: 14px 16px 10px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.10);
-    }
-    .chip{
-      border-radius: 999px;
-      padding: 8px 12px;
       font-size: 12px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      cursor:pointer;
-      color: rgba(242,242,255,.88);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); }
-    .chip.active{
-      border-color: rgba(0,255,209,.35);
-      background: linear-gradient(135deg, rgba(0,255,209,.18), rgba(255,0,200,.10));
-    }
+    .host{ max-width: 70%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
     .empty{
       border-radius: var(--r2);
@@ -572,30 +681,35 @@
     }
     .empty.show{ display:block; }
 
+    /* WhatsApp Floating */
     .wa{
       position: fixed;
       right: 16px;
       bottom: 16px;
-      z-index: 80;
+      z-index: 90;
       display:flex;
       align-items:center;
       gap: 10px;
       border-radius: 999px;
       padding: 12px 14px;
       border: 1px solid rgba(255,255,255,.14);
-      background: rgba(12,12,18,.70);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 26px 80px rgba(0,0,0,.55);
+      background: rgba(10,10,16,.72);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 100px rgba(0,0,0,.60);
       cursor:pointer;
       user-select:none;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .wa:hover{ transform: translateY(-2px); border-color: rgba(0,255,209,.25); background: rgba(12,12,18,.80); }
+    .wa:hover{
+      transform: translateY(-2px);
+      border-color: rgba(0,255,209,.25);
+      background: rgba(10,10,16,.82);
+    }
     .wa svg{ width:18px; height:18px; }
-    .wa span{ font-size:13px; color: rgba(242,242,255,.92); }
+    .wa span{ font-size: 13px; color: rgba(242,242,255,.92); }
 
     footer{
-      border-top:1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(255,255,255,.08);
       padding: 20px 0 26px;
       color: rgba(242,242,255,.60);
       font-size: 13px;
@@ -607,40 +721,45 @@
       text-decoration-color: rgba(242,242,255,.25);
     }
 
+    /* Responsive */
     @media (max-width: 980px){
       .navlinks{ display:none; }
       .heroInner{ grid-template-columns: 1fr; }
-      .heroTitle{ font-size: 30px; }
+      .heroTitle{ font-size: 34px; }
       .grid{ gap: 12px; }
       .card{ grid-column: span 6; }
       .tile{ grid-column: span 6; }
       .tile.big{ grid-column: span 12; }
+      .heroCard3d{ min-height: 340px; }
+      .heroLogo img{ max-width: 540px; }
     }
     @media (max-width: 620px){
       .wrap{ width: calc(100% - 28px); }
       .btn.primary{ display:none; }
       .brand{ min-width: unset; }
-      .neonTitle{ font-size: 18px; }
-      .heroTitle{ font-size: 26px; }
+      .brandTitle{ font-size: 18px; }
+      .heroTitle{ font-size: 28px; }
       .card{ grid-column: span 12; }
       .tile{ grid-column: span 12; }
       .wa{ right: 12px; bottom: 12px; padding: 12px 12px; }
       .wa span{ display:none; }
+      .heroInner{ padding: 18px; }
+      .heroLogo img{ max-width: 460px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="top">
+  <header class="nav">
     <div class="wrap">
-      <div class="top-inner">
-        <div class="brand" role="banner">
-          <div class="brandMark" aria-hidden="true">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
             <img src="https://iili.io/fDxd9dG.png" alt="">
           </div>
           <div class="brandText">
-            <h1 class="neonTitle">CIBORG 347</h1>
-            <small>Demos / Catálogo</small>
+            <h1 class="brandTitle">CIBORG 347</h1>
+            <small>Demos Premium / Catálogo</small>
           </div>
         </div>
 
@@ -660,28 +779,28 @@
           <input id="q" type="text" placeholder="Buscar por nombre o rubro..." autocomplete="off" />
         </div>
 
-        <button class="btn" id="btnReset" type="button">Ver todo</button>
-        <button class="btn primary" id="btnWhatsApp" type="button">Register</button>
+        <button class="btn ghost" id="btnReset" type="button">Ver todo</button>
+        <button class="btn primary" id="btnWhatsApp" type="button">Quiero una así</button>
       </div>
     </div>
-  </div>
+  </header>
 
   <main class="wrap" id="home">
     <section class="hero">
-      <div class="heroCard">
+      <div class="heroShell">
         <div class="heroInner">
           <div>
-            <div class="heroKicker">Discover • Collect • Convert</div>
-            <h2 class="heroTitle">Elegí un ejemplo premium y pedime uno igual para tu negocio.</h2>
+            <div class="kicker"><span class="dot"></span> Discover • Collect • Convert</div>
+            <h2 class="heroTitle">Demos ultra modernas, listas para adaptar a tu negocio.</h2>
             <p class="heroSub">
-              Estilo tech premium (dark UI + glass cards + neon glow). Mirás demos por rubro, elegís una, y tocás
-              <b>“Quiero una así”</b> para abrir WhatsApp con el link precargado.
+              Catálogo premium estilo marketplace tech: dark UI + glass cards + neon glow.
+              Elegís una demo, la mirás y tocás <b>“Quiero una así”</b> para abrir WhatsApp con el link precargado.
             </p>
 
-            <div class="heroActions">
-              <button class="btn primary" type="button" id="btnScrollPopular">Discover</button>
-              <button class="btn" type="button" id="btnScrollCatalogo">Explore demos</button>
-              <button class="btn" type="button" id="btnWatch">Watch a video</button>
+            <div class="ctaRow">
+              <button class="btn primary" id="btnScrollPopular" type="button">Ver demos populares</button>
+              <button class="btn ghost" id="btnScrollCatalogo" type="button">Explorar catálogo</button>
+              <button class="btn ghost" id="btnWatch" type="button">Ver video</button>
             </div>
 
             <div class="statsRow">
@@ -694,22 +813,22 @@
                 <div class="v" id="statCats">—</div>
               </div>
               <div class="stat">
-                <div class="k">Activas hoy</div>
-                <div class="v" id="statToday">24/7</div>
+                <div class="k">Modo</div>
+                <div class="v">24/7</div>
               </div>
             </div>
           </div>
 
-          <div class="heroArt" aria-label="Hero Logo">
-            <!-- LOGO HERO -->
-            <img src="https://iili.io/fDT5i2n.jpg" alt="Logo hero">
-            <div class="heroArtBadge">
-              <b>Logo hero</b> • CIBORG 347
+          <!-- HERO 3D CARD con LOGO en el centro -->
+          <div class="heroCard3d" id="heroCard3d" aria-label="Hero premium">
+            <div class="heroLogo">
+              <img src="https://iili.io/fDT5i2n.jpg" alt="Logo hero">
             </div>
+            <div class="heroBadge"><b>Hero</b> • Logo premium</div>
           </div>
         </div>
 
-        <div class="partnerBar" aria-label="Barra de marcas">
+        <div class="partners" aria-label="Barra de marcas">
           <span>PayPal</span>
           <span>Coinbase</span>
           <span>Binance</span>
@@ -723,7 +842,7 @@
     </section>
 
     <section class="section" id="popular">
-      <div class="sectionHead">
+      <div class="head">
         <h3>Popular this week</h3>
         <p>Scroll horizontal con el dedo en móvil</p>
       </div>
@@ -731,7 +850,7 @@
     </section>
 
     <section class="section" id="top">
-      <div class="sectionHead">
+      <div class="head">
         <h3>Top categories</h3>
         <p>Entrá por rubro y decidí rápido</p>
       </div>
@@ -739,15 +858,15 @@
     </section>
 
     <section class="section" id="explore">
-      <div class="sectionHead">
-        <h3>Explore artworks</h3>
-        <p>Catálogo completo abajo (con búsqueda)</p>
+      <div class="head">
+        <h3>Explore</h3>
+        <p>Sección bento + catálogo completo abajo</p>
       </div>
       <div class="bento" id="exploreTiles" aria-label="Explore tiles"></div>
     </section>
 
     <section class="catalog" id="catalogo">
-      <div class="sectionHead">
+      <div class="head">
         <h3>Catálogo completo</h3>
         <p>Buscá por nombre o filtrá por categoría</p>
       </div>
@@ -771,13 +890,19 @@
   </footer>
 
   <script>
-    const WHATSAPP_NUMBER = "5491164499481";
+    // =========================
+    // CONFIG
+    // =========================
+    const WHATSAPP_NUMBER = "5491164499481"; // +54 9 11 6449-9481
     const DEFAULT_WA_MSG = (title, url) =>
       `Hola! Vi la demo "${title}" y quiero una similar para mi negocio.%0A%0A` +
       `Link: ${encodeURIComponent(url)}%0A` +
       `Mi rubro es: _____.%0A` +
       `¿Te paso mis datos?`;
 
+    // =========================
+    // DATA (links onrender)
+    // =========================
     const SITES = [
       { category:"estetica", link:"https://adda-nails.onrender.com/" },
       { category:"barber", link:"https://barberia-elbebu.onrender.com/" },
@@ -839,24 +964,24 @@
       otros: "Otros"
     };
 
+    // =========================
+    // HELPERS
+    // =========================
     const byId = (id) => document.getElementById(id);
 
     function hostFromUrl(url){
       try{ return new URL(url).hostname.replace("www.",""); }
       catch(e){ return url; }
     }
-
     function prettyNameFromHost(host){
       const base = host.split(".onrender.com")[0] || host;
       const clean = base.replace(/[-_]+/g, " ").trim();
       return clean.split(" ").map(w => w ? (w[0].toUpperCase()+w.slice(1)) : "").join(" ");
     }
-
     function makePlaceholderImage(n, host){
       const label = `DEMO ${String(n).padStart(3,"0")} - ${host.replace(".onrender.com","")}`;
       return `https://placehold.co/1600x1000/png?text=${encodeURIComponent(label)}`;
     }
-
     function normalizeSites(){
       return SITES
         .filter(s => (s.link || "").includes("onrender.com"))
@@ -917,10 +1042,18 @@
       });
     }
 
+    function waGeneral(){
+      const msg =
+        `Hola! Quiero una landing/web para mi negocio.%0A` +
+        `Mi rubro es: _____.%0A` +
+        `¿Me mostrás un ejemplo similar y me decís cómo avanzamos?`;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+
     function waLinkFor(site){
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_WA_MSG(site.title, site.url)}`;
     }
-<!-- ===================== PARTE 2/2 ===================== -->
+
     function cardTemplate(site){
       const badge = (CATEGORY_LABELS[site.categoryId] || site.categoryId);
       return `
@@ -930,13 +1063,13 @@
             <div class="badge">${badge}</div>
           </div>
           <div class="content">
-            <h3 class="title">${site.title}</h3>
+            <h3 class="cTitle">${site.title}</h3>
             <p class="short">${site.short}</p>
             <div class="actions">
-              <a class="btn mini" href="${site.url}" target="_blank" rel="noopener">Ver demo</a>
+              <a class="btn mini ghost" href="${site.url}" target="_blank" rel="noopener">Ver demo</a>
               <a class="btn mini primary" href="${waLinkFor(site)}" target="_blank" rel="noopener">Quiero una así</a>
             </div>
-            <div class="metaRow">
+            <div class="meta">
               <span class="host">${site.host}</span>
               <span>${site.id.toUpperCase()}</span>
             </div>
@@ -972,7 +1105,7 @@
     }
 
     function renderPopular(){
-      const picks = ALL.slice(0, 10);
+      const picks = ALL.slice(0, 12);
       popularRow.innerHTML = picks.map((site) => {
         const badge = (CATEGORY_LABELS[site.categoryId] || site.categoryId);
         return `
@@ -984,8 +1117,8 @@
             <div class="hBody">
               <h4 class="hTitle">${site.title}</h4>
               <p class="hMeta">${site.host}</p>
-              <div class="hActions">
-                <a class="btn mini" href="${site.url}" target="_blank" rel="noopener">Ver demo</a>
+              <div class="rowBtns">
+                <a class="btn mini ghost" href="${site.url}" target="_blank" rel="noopener">Ver demo</a>
                 <a class="btn mini primary" href="${waLinkFor(site)}" target="_blank" rel="noopener">Quiero una así</a>
               </div>
             </div>
@@ -1001,16 +1134,15 @@
         const isBig = i === 0 || i === 3;
         return `
           <div class="tile ${isBig ? "big" : ""}" data-cat="${c.id}">
-            <div class="tBg"></div>
-            <div class="tInner">
+            <div class="inner">
               <div>
-                <div class="tLabel">Category</div>
-                <h4 class="tTitle">${c.name}</h4>
-                <p class="tSub">Entrá por rubro y mirá ejemplos listos para adaptar.</p>
+                <div class="label">Category</div>
+                <h4 class="title">${c.name}</h4>
+                <p class="sub">Entrá por rubro y mirá demos listas para adaptar.</p>
               </div>
-              <div class="tBtnRow">
+              <div class="rowBtns">
                 <button class="btn mini primary" type="button">Filtrar</button>
-                <button class="btn mini" type="button">Ver catálogo</button>
+                <button class="btn mini ghost" type="button">Ver catálogo</button>
               </div>
             </div>
           </div>
@@ -1035,16 +1167,15 @@
         const isBig = i === 1;
         return `
           <div class="tile ${isBig ? "big" : ""}" data-cat="${c.id}">
-            <div class="tBg"></div>
-            <div class="tInner">
+            <div class="inner">
               <div>
-                <div class="tLabel">Explore</div>
-                <h4 class="tTitle">${c.name}</h4>
-                <p class="tSub">Diseños modernos + CTA WhatsApp. Elegí una y pedime una así.</p>
+                <div class="label">Explore</div>
+                <h4 class="title">${c.name}</h4>
+                <p class="sub">Elegí una demo y pedime una igual por WhatsApp.</p>
               </div>
-              <div class="tBtnRow">
+              <div class="rowBtns">
                 <a class="btn mini primary" href="#catalogo">Ver demos</a>
-                <button class="btn mini" type="button">Filtrar</button>
+                <button class="btn mini ghost" type="button">Filtrar</button>
               </div>
             </div>
           </div>
@@ -1073,6 +1204,9 @@
       });
     }
 
+    // =========================
+    // EVENTS
+    // =========================
     q.addEventListener("input", (e) => {
       query = e.target.value || "";
       renderCatalog();
@@ -1087,14 +1221,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    function waGeneral(){
-      const msg =
-        `Hola! Quiero una landing/web para mi negocio.%0A` +
-        `Mi rubro es: _____.%0A` +
-        `¿Me mostrás un ejemplo similar y me decís cómo avanzamos?`;
-      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    }
-
     byId("btnWhatsApp").addEventListener("click", () => {
       window.open(waGeneral(), "_blank", "noopener");
     });
@@ -1107,13 +1233,49 @@
     byId("btnScrollPopular").addEventListener("click", () => {
       document.querySelector("#popular")?.scrollIntoView({ behavior:"smooth", block:"start" });
     });
+
     byId("btnScrollCatalogo").addEventListener("click", () => {
       document.querySelector("#catalogo")?.scrollIntoView({ behavior:"smooth", block:"start" });
     });
+
     byId("btnWatch").addEventListener("click", () => {
-      alert("Acá podés abrir un modal con video demo (si querés lo agrego).");
+      alert("Si querés, te agrego un modal con video (mp4/webm) en el hero.");
     });
 
+    // =========================
+    // HERO 3D TILT (mouse)
+    // =========================
+    (function heroTilt(){
+      const card = document.getElementById("heroCard3d");
+      if(!card) return;
+
+      const maxTilt = 10;
+      let raf = null;
+
+      function setTilt(x, y){
+        const rotY = (x - 0.5) * (maxTilt * 2);
+        const rotX = (0.5 - y) * (maxTilt * 2);
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      }
+
+      function onMove(e){
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        if(raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => setTilt(x,y));
+      }
+
+      function reset(){
+        card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+      }
+
+      card.addEventListener("mousemove", onMove);
+      card.addEventListener("mouseleave", reset);
+      card.addEventListener("touchstart", reset, { passive:true });
+    })();
+
+    // Init
     renderChips();
     renderPopular();
     renderTopTiles();
