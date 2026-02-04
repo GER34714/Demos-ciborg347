@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Elegí un ejemplo por rubro y pedime una igual para tu negocio. Contacto por WhatsApp." />
   <meta name="twitter:image" content="https://placehold.co/1200x630/png?text=CIBORG+347+DEMOS" />
 
-  <meta name="theme-color" content="#0b0b10" />
+  <meta name="theme-color" content="#07070c" />
 
   <style>
     @font-face{
@@ -33,110 +33,150 @@
     :root{
       --bg:#07070c;
       --bg2:#0b0b12;
+      --panel: rgba(255,255,255,.05);
+      --panel2: rgba(255,255,255,.07);
+      --stroke: rgba(255,255,255,.12);
+      --stroke2: rgba(255,255,255,.18);
       --txt:#f2f2ff;
-      --muted: rgba(242,242,255,.72);
+      --muted: rgba(242,242,255,.70);
       --muted2: rgba(242,242,255,.55);
-      --shadow: 0 16px 50px rgba(0,0,0,.55);
-      --r: 20px;
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --r: 18px;
       --r2: 26px;
       --max: 1200px;
+      --cyan: #00ffd1;
+      --mag:  #ff00c8;
+      --vio:  #6f5bff;
     }
 
     *{ box-sizing: border-box; }
     html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--txt);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       background:
-        radial-gradient(900px 500px at 20% -10%, rgba(0,255,209,.18), transparent 60%),
-        radial-gradient(900px 500px at 80% 0%, rgba(255,0,200,.16), transparent 60%),
-        radial-gradient(900px 500px at 60% 100%, rgba(120,70,255,.15), transparent 60%),
+        radial-gradient(900px 500px at 15% -10%, rgba(0,255,209,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 0%, rgba(255,0,200,.16), transparent 60%),
+        radial-gradient(900px 600px at 60% 110%, rgba(111,91,255,.16), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
+      padding-bottom: 110px;
+    }
+
+    body::before{
+      content:"";
+      position: fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.07;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      z-index: 0;
     }
 
     a{ color:inherit; text-decoration:none; }
-    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; position:relative; z-index:1; }
 
-    /* Top bar */
     .top{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(180deg, rgba(7,7,12,.78), rgba(7,7,12,.55));
-      border-bottom:1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top:0;
+      z-index: 60;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(7,7,12,.78), rgba(7,7,12,.50));
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .top-inner{
-      display:flex; align-items:center; gap:14px;
-      padding:14px 0;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding: 14px 0;
     }
 
     .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 260px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 270px;
     }
-
     .brandMark{
-      width:40px; height:40px;
-      border-radius: 14px;
-      display:grid; place-items:center;
+      width:44px; height:44px;
+      border-radius: 16px;
       background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
       overflow:hidden;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
     }
     .brandMark img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
+      width:100%; height:100%;
+      object-fit: contain;
       padding:6px;
-      filter: drop-shadow(0 0 18px rgba(0,255,209,.18)) drop-shadow(0 0 18px rgba(255,0,200,.14));
+      filter:
+        drop-shadow(0 0 18px rgba(0,255,209,.25))
+        drop-shadow(0 0 18px rgba(255,0,200,.18))
+        drop-shadow(0 0 18px rgba(111,91,255,.15));
     }
 
-    .brandText{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-
+    .brandText{ line-height:1.05; }
     .neonTitle{
       margin:0;
       font-family: "Angels", ui-sans-serif, system-ui;
       font-size: 22px;
-      letter-spacing: .08em;
+      letter-spacing: .10em;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #00ffd1, #ff00c8, #6f5bff, #00ffd1);
+      background: linear-gradient(90deg, var(--cyan), var(--mag), var(--vio), var(--cyan));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      filter: saturate(1.45);
       text-shadow:
-        0 0 14px rgba(0,255,209,.35),
-        0 0 18px rgba(255,0,200,.28),
-        0 0 22px rgba(111,91,255,.22),
-        0 0 28px rgba(0,255,209,.18);
-      filter: saturate(1.35);
+        0 0 16px rgba(0,255,209,.40),
+        0 0 22px rgba(255,0,200,.30),
+        0 0 26px rgba(111,91,255,.22),
+        0 0 34px rgba(0,255,209,.18);
       position:relative;
     }
-
     .brandText small{
       display:block;
-      font-size:12px;
-      letter-spacing:.04em;
-      color:var(--muted2);
       margin-top:3px;
-      text-transform:none;
+      font-size:12px;
+      color: var(--muted2);
+      letter-spacing:.04em;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      color: rgba(242,242,255,.78);
+      font-size:13px;
+      margin-left: 6px;
+      white-space: nowrap;
+    }
+    .navlinks a{
+      padding:8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .navlinks a:hover{
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
     }
 
     .search{
       flex:1;
-      display:flex; align-items:center; gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
       background: rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
       border-radius: 999px;
       padding:10px 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      min-width: 220px;
     }
-    .search svg{ flex:0 0 auto; opacity:.75; }
+    .search svg{ opacity:.78; }
     .search input{
       width:100%;
       background: transparent;
@@ -147,9 +187,6 @@
     }
     .search input::placeholder{ color: rgba(242,242,255,.45); }
 
-    .ctaTop{
-      display:flex; gap:10px; align-items:center;
-    }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
@@ -171,67 +208,336 @@
       box-shadow: 0 16px 40px rgba(0,0,0,.35);
     }
 
-    /* Hero */
-    .hero{ padding: 26px 0 10px; }
-    .hero-card{
+    .hero{ padding: 26px 0 16px; }
+    .heroCard{
       border-radius: var(--r2);
       background:
-        radial-gradient(900px 340px at 20% 0%, rgba(0,255,209,.14), transparent 55%),
-        radial-gradient(820px 320px at 85% 10%, rgba(255,0,200,.12), transparent 55%),
-        rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
+        radial-gradient(1000px 420px at 20% 0%, rgba(0,255,209,.18), transparent 55%),
+        radial-gradient(900px 420px at 85% 10%, rgba(255,0,200,.14), transparent 55%),
+        radial-gradient(900px 520px at 60% 120%, rgba(111,91,255,.16), transparent 60%),
+        rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.10);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
     }
-    .hero-inner{
+    .heroInner{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 18px;
       padding: 22px;
-      align-items:center;
+      align-items: center;
     }
-
-    .heroHead{
-      display:flex;
-      align-items:center;
-      gap:14px;
+    .heroKicker{
+      color: rgba(242,242,255,.70);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
       margin-bottom: 10px;
     }
-    .heroLogo{
-      width:74px;
-      height:74px;
+    .heroTitle{
+      margin:0 0 10px;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    .heroSub{
+      margin:0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 54ch;
+    }
+    .heroActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 16px;
+    }
+    .heroActions .btn{ padding: 11px 16px; }
+
+    .statsRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .stat{
+      flex:1 1 160px;
+      min-width: 160px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 12px 12px;
+      backdrop-filter: blur(14px);
+    }
+    .stat .k{ font-size:12px; color: var(--muted2); margin-bottom:4px; }
+    .stat .v{ font-size:18px; letter-spacing:-.01em; }
+
+    /* HERO ART (logo en hero) */
+    .heroArt{
       border-radius: 22px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      position:relative;
+      min-height: 320px;
+      backdrop-filter: blur(16px);
       display:grid;
       place-items:center;
-      overflow:hidden;
-      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      padding: 18px;
     }
-    .heroLogo img{
+    .heroArt::before{
+      content:"";
+      position:absolute; inset:-90px;
+      background:
+        radial-gradient(380px 220px at 30% 30%, rgba(0,255,209,.26), transparent 60%),
+        radial-gradient(380px 220px at 70% 40%, rgba(255,0,200,.22), transparent 60%),
+        radial-gradient(420px 260px at 55% 75%, rgba(111,91,255,.24), transparent 65%);
+      filter: blur(18px);
+      opacity: .95;
+    }
+    .heroArt img{
+      position:relative;
       width:100%;
       height:100%;
-      object-fit:contain;
-      padding:10px;
+      max-height: 460px;
+      object-fit: contain;  /* LOGO como protagonista */
+      z-index: 1;
       filter:
-        drop-shadow(0 0 18px rgba(0,255,209,.30))
-        drop-shadow(0 0 18px rgba(255,0,200,.22))
-        drop-shadow(0 0 18px rgba(111,91,255,.18));
+        drop-shadow(0 0 22px rgba(0,255,209,.30))
+        drop-shadow(0 0 22px rgba(255,0,200,.22))
+        drop-shadow(0 0 22px rgba(111,91,255,.20));
+      transform: scale(1.02);
+    }
+    .heroArtBadge{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 2;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(14px);
+      color: rgba(242,242,255,.92);
+      font-size: 12px;
     }
 
-    .heroTitleBlock h2{
-      margin:0 0 6px;
+    .partnerBar{
+      display:flex;
+      gap:18px;
+      justify-content: space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      padding: 14px 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.10);
+      color: rgba(242,242,255,.55);
+      font-size: 12px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .section{ padding: 18px 0 8px; }
+    .sectionHead{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .sectionHead h3{
+      margin:0;
       font-size: 22px;
       letter-spacing: -0.02em;
-      line-height:1.14;
     }
-    .heroTitleBlock p{
+    .sectionHead p{
       margin:0;
-      color: var(--muted);
-      font-size:14px;
-      line-height:1.45;
+      color: var(--muted2);
+      font-size: 13px;
     }
+
+    .hScroll{
+      display:flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .hScroll::-webkit-scrollbar{ height: 8px; }
+    .hScroll::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.12); border-radius: 999px; }
+    .hCard{
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      border-radius: var(--r);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 18px 55px rgba(0,0,0,.40);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(16px);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .hCard:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.065);
+    }
+    .hThumb{
+      aspect-ratio: 16/10;
+      background: rgba(0,0,0,.22);
+      position:relative;
+      overflow:hidden;
+    }
+    .hThumb img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+      filter: saturate(1.08) contrast(1.05);
+    }
+    .hBody{ padding: 12px; }
+    .hTitle{ margin:0 0 6px; font-size: 14px; letter-spacing: -.01em; }
+    .hMeta{ margin:0 0 10px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .hActions{ display:flex; gap:10px; flex-wrap:wrap; }
+    .mini{
+      padding: 9px 12px;
+      font-size: 12px;
+      border-radius: 14px;
+    }
+    .mini.primary{
+      border-color: rgba(0,255,209,.28);
+      background: linear-gradient(135deg, rgba(0,255,209,.17), rgba(255,0,200,.10));
+    }
+    .badge{
+      position:absolute;
+      top:10px; left:10px;
+      padding:6px 10px;
+      font-size:11px;
+      border-radius:999px;
+      background: rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(242,242,255,.92);
+      backdrop-filter: blur(10px);
+      z-index: 2;
+    }
+
+    .bento{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .tile{
+      grid-column: span 4;
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      overflow:hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,.42);
+      position:relative;
+      backdrop-filter: blur(16px);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      cursor: pointer;
+    }
+    .tile:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.065);
+    }
+    .tile.big{ grid-column: span 6; }
+    .tile .tBg{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 320px at 20% 20%, rgba(0,255,209,.16), transparent 60%),
+        radial-gradient(600px 320px at 80% 30%, rgba(255,0,200,.12), transparent 60%),
+        radial-gradient(680px 420px at 60% 90%, rgba(111,91,255,.14), transparent 62%),
+        rgba(0,0,0,.18);
+    }
+    .tile .tInner{
+      position:relative;
+      padding: 16px;
+      min-height: 150px;
+      display:flex;
+      flex-direction:column;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 1;
+    }
+    .tile .tLabel{
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(242,242,255,.70);
+    }
+    .tile .tTitle{
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .tile .tSub{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .tile .tBtnRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 4px;
+    }
+
+    .catalog{ padding: 18px 0 48px; }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .card{
+      grid-column: span 4;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      box-shadow: 0 18px 55px rgba(0,0,0,.40);
+      transform: translateY(10px);
+      opacity: 0;
+      transition: transform .38s ease, opacity .38s ease, border-color .18s ease, background .18s ease;
+      position:relative;
+      backdrop-filter: blur(16px);
+    }
+    .card.in{ transform: translateY(0); opacity:1; }
+    .card:hover{ border-color: rgba(255,255,255,.20); background: rgba(255,255,255,.065); transform: translateY(-3px); }
+    .thumb{
+      aspect-ratio: 16 / 10;
+      width:100%;
+      background: rgba(0,0,0,.22);
+      position:relative;
+      overflow:hidden;
+    }
+    .thumb img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      filter: saturate(1.08) contrast(1.05);
+      transform: scale(1.02);
+    }
+    .content{ padding: 12px 12px 14px; }
+    .title{ margin:0 0 6px; font-size: 15px; letter-spacing:-.01em; }
+    .short{ margin:0 0 10px; color: var(--muted); font-size: 13px; line-height:1.5; min-height: 40px; }
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
+    .metaRow{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      margin-top:10px;
+      padding-top:10px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: rgba(242,242,255,.60);
+      font-size:12px;
+    }
+    .host{ max-width: 68%; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; }
 
     .chips{
       display:flex; flex-wrap:wrap; gap:8px;
@@ -255,115 +561,6 @@
       background: linear-gradient(135deg, rgba(0,255,209,.18), rgba(255,0,200,.10));
     }
 
-    .hero-side{
-      display:flex; flex-direction:column; gap:10px;
-      align-items:stretch;
-    }
-    .stat{
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 12px 12px;
-    }
-    .stat .k{
-      font-size:12px; color: var(--muted2); margin-bottom:4px;
-    }
-    .stat .v{
-      font-size:16px; letter-spacing:-.01em;
-    }
-
-    /* Grid */
-    .section{ padding: 18px 0 48px; }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .card{
-      grid-column: span 4;
-      border-radius: var(--r);
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-      transform: translateY(8px);
-      opacity: 0;
-      transition: transform .35s ease, opacity .35s ease, border-color .15s ease, background .15s ease;
-      position:relative;
-    }
-    .card.in{ transform: translateY(0); opacity:1; }
-    .card:hover{ border-color: rgba(255,255,255,.20); background: rgba(255,255,255,.065); }
-
-    .thumb{
-      aspect-ratio: 16 / 10;
-      width:100%;
-      background: rgba(0,0,0,.25);
-      position:relative;
-      overflow:hidden;
-    }
-    .thumb img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.05);
-      transform: scale(1.02);
-    }
-    .badge{
-      position:absolute;
-      top:10px; left:10px;
-      padding:6px 10px;
-      font-size:11px;
-      border-radius:999px;
-      background: rgba(0,0,0,.45);
-      border: 1px solid rgba(255,255,255,.18);
-      color: rgba(242,242,255,.92);
-      backdrop-filter: blur(10px);
-    }
-    .content{ padding: 12px 12px 14px; }
-    .title{
-      margin:0 0 6px;
-      font-size: 15px;
-      line-height:1.25;
-      letter-spacing:-.01em;
-    }
-    .short{
-      margin:0 0 10px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.45;
-      min-height: 38px;
-    }
-    .actions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 10px;
-    }
-    .mini{
-      padding:9px 12px;
-      font-size:12px;
-      border-radius: 14px;
-    }
-    .mini.primary{
-      border-color: rgba(0,255,209,.28);
-      background: linear-gradient(135deg, rgba(0,255,209,.17), rgba(255,0,200,.10));
-    }
-    .metaRow{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      margin-top:10px;
-      padding-top:10px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(242,242,255,.60);
-      font-size:12px;
-    }
-    .host{
-      max-width: 68%;
-      overflow:hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
     .empty{
       border-radius: var(--r2);
       border: 1px solid rgba(255,255,255,.10);
@@ -375,7 +572,6 @@
     }
     .empty.show{ display:block; }
 
-    /* WhatsApp floating */
     .wa{
       position: fixed;
       right: 16px;
@@ -387,23 +583,23 @@
       border-radius: 999px;
       padding: 12px 14px;
       border: 1px solid rgba(255,255,255,.14);
-      background: rgba(12,12,18,.68);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 22px 55px rgba(0,0,0,.45);
+      background: rgba(12,12,18,.70);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 26px 80px rgba(0,0,0,.55);
       cursor:pointer;
       user-select:none;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .wa:hover{ transform: translateY(-2px); border-color: rgba(0,255,209,.25); background: rgba(12,12,18,.78); }
+    .wa:hover{ transform: translateY(-2px); border-color: rgba(0,255,209,.25); background: rgba(12,12,18,.80); }
     .wa svg{ width:18px; height:18px; }
     .wa span{ font-size:13px; color: rgba(242,242,255,.92); }
 
-    /* Footer */
     footer{
       border-top:1px solid rgba(255,255,255,.08);
       padding: 20px 0 26px;
       color: rgba(242,242,255,.60);
       font-size: 13px;
+      margin-top: 18px;
     }
     footer a{
       color: rgba(242,242,255,.78);
@@ -411,23 +607,25 @@
       text-decoration-color: rgba(242,242,255,.25);
     }
 
-    /* Responsive */
     @media (max-width: 980px){
-      .hero-inner{ grid-template-columns: 1fr; }
-      .brand{ min-width: 220px; }
+      .navlinks{ display:none; }
+      .heroInner{ grid-template-columns: 1fr; }
+      .heroTitle{ font-size: 30px; }
       .grid{ gap: 12px; }
       .card{ grid-column: span 6; }
+      .tile{ grid-column: span 6; }
+      .tile.big{ grid-column: span 12; }
     }
     @media (max-width: 620px){
-      .top-inner{ gap:10px; }
-      .ctaTop{ display:none; }
-      .card{ grid-column: span 12; }
       .wrap{ width: calc(100% - 28px); }
+      .btn.primary{ display:none; }
+      .brand{ min-width: unset; }
+      .neonTitle{ font-size: 18px; }
+      .heroTitle{ font-size: 26px; }
+      .card{ grid-column: span 12; }
+      .tile{ grid-column: span 12; }
       .wa{ right: 12px; bottom: 12px; padding: 12px 12px; }
       .wa span{ display:none; }
-      .neonTitle{ font-size: 18px; }
-      .brandMark{ width:36px; height:36px; border-radius: 14px; }
-      .heroLogo{ width:66px; height:66px; border-radius: 20px; }
     }
   </style>
 </head>
@@ -446,6 +644,14 @@
           </div>
         </div>
 
+        <nav class="navlinks" aria-label="Secciones">
+          <a href="#home">Home</a>
+          <a href="#popular">Popular</a>
+          <a href="#top">Top</a>
+          <a href="#explore">Explore</a>
+          <a href="#catalogo">Catálogo</a>
+        </nav>
+
         <div class="search" role="search" aria-label="Buscar demo">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" opacity=".85"/>
@@ -454,47 +660,97 @@
           <input id="q" type="text" placeholder="Buscar por nombre o rubro..." autocomplete="off" />
         </div>
 
-        <div class="ctaTop">
-          <button class="btn" id="btnReset" type="button">Ver todo</button>
-          <button class="btn primary" id="btnWhatsApp" type="button">WhatsApp</button>
-        </div>
+        <button class="btn" id="btnReset" type="button">Ver todo</button>
+        <button class="btn primary" id="btnWhatsApp" type="button">Register</button>
       </div>
     </div>
   </div>
 
-  <main class="wrap">
+  <main class="wrap" id="home">
     <section class="hero">
-      <div class="hero-card">
-        <div class="hero-inner">
+      <div class="heroCard">
+        <div class="heroInner">
           <div>
-            <div class="heroHead">
-              <div class="heroLogo">
-                <img src="https://iili.io/fDxd9dG.png" alt="Logo Ciborg 347">
-              </div>
-              <div class="heroTitleBlock">
-                <h2>Elegí un ejemplo y pedime uno igual para tu negocio.</h2>
-                <p>Catálogo por rubro para decidir rápido. En cada demo tenés <b>Ver demo</b> y <b>Quiero una así</b> (WhatsApp con el link precargado).</p>
-              </div>
+            <div class="heroKicker">Discover • Collect • Convert</div>
+            <h2 class="heroTitle">Elegí un ejemplo premium y pedime uno igual para tu negocio.</h2>
+            <p class="heroSub">
+              Estilo tech premium (dark UI + glass cards + neon glow). Mirás demos por rubro, elegís una, y tocás
+              <b>“Quiero una así”</b> para abrir WhatsApp con el link precargado.
+            </p>
+
+            <div class="heroActions">
+              <button class="btn primary" type="button" id="btnScrollPopular">Discover</button>
+              <button class="btn" type="button" id="btnScrollCatalogo">Explore demos</button>
+              <button class="btn" type="button" id="btnWatch">Watch a video</button>
             </div>
 
-            <div class="chips" id="chips" aria-label="Filtros por categoría"></div>
+            <div class="statsRow">
+              <div class="stat">
+                <div class="k">Demos</div>
+                <div class="v" id="statAll">—</div>
+              </div>
+              <div class="stat">
+                <div class="k">Categorías</div>
+                <div class="v" id="statCats">—</div>
+              </div>
+              <div class="stat">
+                <div class="k">Activas hoy</div>
+                <div class="v" id="statToday">24/7</div>
+              </div>
+            </div>
           </div>
 
-          <div class="hero-side">
-            <div class="stat">
-              <div class="k">Demos disponibles</div>
-              <div class="v" id="statCount">—</div>
-            </div>
-            <div class="stat">
-              <div class="k">Filtro activo</div>
-              <div class="v" id="statFilter">Todas</div>
+          <div class="heroArt" aria-label="Hero Logo">
+            <!-- LOGO HERO -->
+            <img src="https://iili.io/fDT5i2n.jpg" alt="Logo hero">
+            <div class="heroArtBadge">
+              <b>Logo hero</b> • CIBORG 347
             </div>
           </div>
         </div>
+
+        <div class="partnerBar" aria-label="Barra de marcas">
+          <span>PayPal</span>
+          <span>Coinbase</span>
+          <span>Binance</span>
+          <span>Revolut</span>
+          <span>Exodus</span>
+          <span>Bitfinex</span>
+        </div>
+
+        <div class="chips" id="chips" aria-label="Filtros por categoría"></div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="popular">
+      <div class="sectionHead">
+        <h3>Popular this week</h3>
+        <p>Scroll horizontal con el dedo en móvil</p>
+      </div>
+      <div class="hScroll" id="popularRow" aria-label="Popular demos"></div>
+    </section>
+
+    <section class="section" id="top">
+      <div class="sectionHead">
+        <h3>Top categories</h3>
+        <p>Entrá por rubro y decidí rápido</p>
+      </div>
+      <div class="bento" id="topTiles" aria-label="Bento categories"></div>
+    </section>
+
+    <section class="section" id="explore">
+      <div class="sectionHead">
+        <h3>Explore artworks</h3>
+        <p>Catálogo completo abajo (con búsqueda)</p>
+      </div>
+      <div class="bento" id="exploreTiles" aria-label="Explore tiles"></div>
+    </section>
+
+    <section class="catalog" id="catalogo">
+      <div class="sectionHead">
+        <h3>Catálogo completo</h3>
+        <p>Buscá por nombre o filtrá por categoría</p>
+      </div>
       <div class="grid" id="grid" aria-label="Listado de demos"></div>
       <div class="empty" id="empty">No encontré demos con ese filtro/búsqueda.</div>
     </section>
@@ -505,7 +761,7 @@
       <path d="M16 2.5C8.55 2.5 2.5 8.34 2.5 15.55c0 2.7.87 5.2 2.36 7.25L3.5 29.5l6.98-1.27c1.9 1 4.08 1.57 6.52 1.57 7.45 0 13.5-5.84 13.5-13.05C29.5 8.34 23.45 2.5 16 2.5Z" stroke="currentColor" stroke-width="2" opacity=".9"/>
       <path d="M12.6 10.2c-.3-.7-.6-.7-1-.7h-.8c-.3 0-.8.1-1.2.5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 2.9 4.6 7.2 6.3 3.6 1.4 4.3 1.1 5.1 1 .8-.1 2.6-1 3-2 .4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.9-.5s-2.6-1.2-3-1.4c-.4-.2-.7-.2-1 .2-.3.4-1.2 1.4-1.4 1.7-.2.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.4-2.3-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.5-.7.2-.3.1-.5 0-.7-.1-.2-.9-2.3-1.2-3Z" fill="currentColor" opacity=".9"/>
     </svg>
-    <span>Pedime una así</span>
+    <span>Quiero una así</span>
   </a>
 
   <footer>
@@ -515,21 +771,14 @@
   </footer>
 
   <script>
-    // =========================
-    // CONFIG
-    // =========================
-    const WHATSAPP_NUMBER = "5491164499481"; // +54 9 11 6449-9481
+    const WHATSAPP_NUMBER = "5491164499481";
     const DEFAULT_WA_MSG = (title, url) =>
       `Hola! Vi la demo "${title}" y quiero una similar para mi negocio.%0A%0A` +
       `Link: ${encodeURIComponent(url)}%0A` +
       `Mi rubro es: _____.%0A` +
       `¿Te paso mis datos?`;
 
-    // =========================
-    // DATA (links onrender)
-    // =========================
     const SITES = [
-      // Base
       { category:"estetica", link:"https://adda-nails.onrender.com/" },
       { category:"barber", link:"https://barberia-elbebu.onrender.com/" },
       { category:"barber", link:"https://barber-shop-rodri.onrender.com/" },
@@ -547,7 +796,6 @@
       { category:"casino", link:"https://lions-casino.onrender.com/" },
       { category:"casino", link:"https://giraygana-ijae.onrender.com" },
 
-      // Nuevos links
       { category:"wellness", link:"https://zuca-ancestral.onrender.com" },
       { category:"tattoo", link:"https://tattostudio.onrender.com" },
       { category:"indumentaria", link:"https://simbolik.onrender.com/" },
@@ -591,18 +839,11 @@
       otros: "Otros"
     };
 
-    // =========================
-    // HELPERS
-    // =========================
     const byId = (id) => document.getElementById(id);
 
     function hostFromUrl(url){
-      try{
-        const u = new URL(url);
-        return u.hostname.replace("www.","");
-      }catch(e){
-        return url;
-      }
+      try{ return new URL(url).hostname.replace("www.",""); }
+      catch(e){ return url; }
     }
 
     function prettyNameFromHost(host){
@@ -617,41 +858,45 @@
     }
 
     function normalizeSites(){
-      return SITES.map((s, idx) => {
-        const host = hostFromUrl(s.link);
-        const title = prettyNameFromHost(host);
-        const categoryId = s.category || "otros";
-        return {
-          id: `demo-${String(idx+1).padStart(3,"0")}`,
-          title,
-          categoryId,
-          url: s.link,
-          host,
-          image: makePlaceholderImage(idx+1, host),
-          short: "Demo lista para ver y adaptar a tu negocio.",
-          info: "Diseño moderno con foco en conversión y contacto por WhatsApp."
-        };
-      });
+      return SITES
+        .filter(s => (s.link || "").includes("onrender.com"))
+        .map((s, idx) => {
+          const host = hostFromUrl(s.link);
+          const title = prettyNameFromHost(host);
+          const categoryId = s.category || "otros";
+          return {
+            id: `demo-${String(idx+1).padStart(3,"0")}`,
+            title,
+            categoryId,
+            url: s.link,
+            host,
+            image: makePlaceholderImage(idx+1, host),
+            short: "Demo lista para ver y adaptar a tu negocio.",
+            info: "Diseño moderno con foco en conversión y contacto por WhatsApp."
+          };
+        });
     }
 
     const ALL = normalizeSites();
+    const ALL_CATS = Array.from(new Set(ALL.map(x => x.categoryId)));
 
-    // =========================
-    // UI RENDER
-    // =========================
-    const grid = byId("grid");
-    const empty = byId("empty");
+    byId("statAll").textContent = String(ALL.length);
+    byId("statCats").textContent = String(ALL_CATS.length);
+
     const q = byId("q");
     const chips = byId("chips");
-    const statCount = byId("statCount");
-    const statFilter = byId("statFilter");
+    const grid = byId("grid");
+    const empty = byId("empty");
+    const popularRow = byId("popularRow");
+    const topTiles = byId("topTiles");
+    const exploreTiles = byId("exploreTiles");
 
     let activeCategory = "all";
     let query = "";
 
     function buildCategoryList(){
-      const set = new Set(ALL.map(x => x.categoryId));
-      const items = [{ id:"all", name:"Todas" }, ...Array.from(set).sort().map(id => ({ id, name: CATEGORY_LABELS[id] || id }))];
+      const items = [{ id:"all", name:"Todas" }]
+        .concat(ALL_CATS.sort().map(id => ({ id, name: CATEGORY_LABELS[id] || id })));
       return items;
     }
 
@@ -666,16 +911,18 @@
         b.addEventListener("click", () => {
           activeCategory = c.id;
           renderChips();
-          render();
+          renderCatalog();
         });
         chips.appendChild(b);
       });
     }
+
+    function waLinkFor(site){
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_WA_MSG(site.title, site.url)}`;
+    }
 <!-- ===================== PARTE 2/2 ===================== -->
     function cardTemplate(site){
       const badge = (CATEGORY_LABELS[site.categoryId] || site.categoryId);
-      const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_WA_MSG(site.title, site.url)}`;
-
       return `
         <article class="card" data-id="${site.id}">
           <div class="thumb">
@@ -685,12 +932,10 @@
           <div class="content">
             <h3 class="title">${site.title}</h3>
             <p class="short">${site.short}</p>
-
             <div class="actions">
               <a class="btn mini" href="${site.url}" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn mini primary" href="${waLink}" target="_blank" rel="noopener">Quiero una así</a>
+              <a class="btn mini primary" href="${waLinkFor(site)}" target="_blank" rel="noopener">Quiero una así</a>
             </div>
-
             <div class="metaRow">
               <span class="host">${site.host}</span>
               <span>${site.id.toUpperCase()}</span>
@@ -709,11 +954,11 @@
             io.unobserve(e.target);
           }
         }
-      }, { threshold: 0.15 });
+      }, { threshold: 0.12 });
       cards.forEach(c => io.observe(c));
     }
 
-    function render(){
+    function renderCatalog(){
       const filtered = ALL.filter(s => {
         const okCat = (activeCategory === "all") ? true : s.categoryId === activeCategory;
         const hay = (s.title + " " + s.host + " " + (CATEGORY_LABELS[s.categoryId]||"")).toLowerCase();
@@ -721,21 +966,116 @@
         return okCat && okQ;
       });
 
-      statCount.textContent = `${filtered.length} / ${ALL.length}`;
-      statFilter.textContent = (activeCategory === "all") ? "Todas" : (CATEGORY_LABELS[activeCategory] || activeCategory);
-
       grid.innerHTML = filtered.map(cardTemplate).join("");
       empty.classList.toggle("show", filtered.length === 0);
-
       applyReveal();
     }
 
-    // =========================
-    // EVENTS
-    // =========================
+    function renderPopular(){
+      const picks = ALL.slice(0, 10);
+      popularRow.innerHTML = picks.map((site) => {
+        const badge = (CATEGORY_LABELS[site.categoryId] || site.categoryId);
+        return `
+          <div class="hCard">
+            <div class="hThumb">
+              <img loading="lazy" decoding="async" src="${site.image}" alt="Popular ${site.title}">
+              <div class="badge">${badge}</div>
+            </div>
+            <div class="hBody">
+              <h4 class="hTitle">${site.title}</h4>
+              <p class="hMeta">${site.host}</p>
+              <div class="hActions">
+                <a class="btn mini" href="${site.url}" target="_blank" rel="noopener">Ver demo</a>
+                <a class="btn mini primary" href="${waLinkFor(site)}" target="_blank" rel="noopener">Quiero una así</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderTopTiles(){
+      const list = buildCategoryList().filter(x => x.id !== "all");
+      const top = list.slice(0, 6);
+      topTiles.innerHTML = top.map((c, i) => {
+        const isBig = i === 0 || i === 3;
+        return `
+          <div class="tile ${isBig ? "big" : ""}" data-cat="${c.id}">
+            <div class="tBg"></div>
+            <div class="tInner">
+              <div>
+                <div class="tLabel">Category</div>
+                <h4 class="tTitle">${c.name}</h4>
+                <p class="tSub">Entrá por rubro y mirá ejemplos listos para adaptar.</p>
+              </div>
+              <div class="tBtnRow">
+                <button class="btn mini primary" type="button">Filtrar</button>
+                <button class="btn mini" type="button">Ver catálogo</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      topTiles.querySelectorAll(".tile").forEach(tile => {
+        tile.addEventListener("click", () => {
+          const cat = tile.getAttribute("data-cat");
+          activeCategory = cat || "all";
+          renderChips();
+          renderCatalog();
+          document.querySelector("#catalogo")?.scrollIntoView({ behavior:"smooth", block:"start" });
+        });
+      });
+    }
+
+    function renderExploreTiles(){
+      const list = buildCategoryList().filter(x => x.id !== "all");
+      const items = list.slice(0, 6);
+      exploreTiles.innerHTML = items.map((c, i) => {
+        const isBig = i === 1;
+        return `
+          <div class="tile ${isBig ? "big" : ""}" data-cat="${c.id}">
+            <div class="tBg"></div>
+            <div class="tInner">
+              <div>
+                <div class="tLabel">Explore</div>
+                <h4 class="tTitle">${c.name}</h4>
+                <p class="tSub">Diseños modernos + CTA WhatsApp. Elegí una y pedime una así.</p>
+              </div>
+              <div class="tBtnRow">
+                <a class="btn mini primary" href="#catalogo">Ver demos</a>
+                <button class="btn mini" type="button">Filtrar</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      exploreTiles.querySelectorAll(".tile button").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const cat = btn.closest(".tile")?.getAttribute("data-cat");
+          activeCategory = cat || "all";
+          renderChips();
+          renderCatalog();
+          document.querySelector("#catalogo")?.scrollIntoView({ behavior:"smooth", block:"start" });
+        });
+      });
+
+      exploreTiles.querySelectorAll(".tile").forEach(tile => {
+        tile.addEventListener("click", () => {
+          const cat = tile.getAttribute("data-cat");
+          activeCategory = cat || "all";
+          renderChips();
+          renderCatalog();
+          document.querySelector("#catalogo")?.scrollIntoView({ behavior:"smooth", block:"start" });
+        });
+      });
+    }
+
     q.addEventListener("input", (e) => {
       query = e.target.value || "";
-      render();
+      renderCatalog();
     });
 
     byId("btnReset").addEventListener("click", () => {
@@ -743,7 +1083,7 @@
       query = "";
       q.value = "";
       renderChips();
-      render();
+      renderCatalog();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
@@ -764,9 +1104,21 @@
       window.open(waGeneral(), "_blank", "noopener");
     });
 
-    // Init
+    byId("btnScrollPopular").addEventListener("click", () => {
+      document.querySelector("#popular")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+    byId("btnScrollCatalogo").addEventListener("click", () => {
+      document.querySelector("#catalogo")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+    byId("btnWatch").addEventListener("click", () => {
+      alert("Acá podés abrir un modal con video demo (si querés lo agrego).");
+    });
+
     renderChips();
-    render();
+    renderPopular();
+    renderTopTiles();
+    renderExploreTiles();
+    renderCatalog();
   </script>
 </body>
 </html>
